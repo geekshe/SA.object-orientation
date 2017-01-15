@@ -7,72 +7,44 @@ The three main design advantages of OOP are:
 - Abstraction
 - Polymorphism
 
-EEncapsulation refers to the fact that you keep the data about an object, and any logic about manipulating that data close to the object definition itself.
+Encapsulation refers to the fact that you keep the data about an object, and any logic about manipulating that data close to the object definition itself. For example, if you were designing a Tree class, you'd include data about whether it sheds its leaves, in what season, and you might include a method to calculate volume of leaf drop. All of that would be included in the class definition for an object rather than another location.
 
+Abstraction means that the inner workings of a class need not be viewed or understood to actually use the class. In the case of leaf volume, I don't need to know how the class calculates the expected volume, I just need to know that it wants me to give it tree species and age and it will give me a volume from that.
 
-
+Polymorphism allows you to use the same interface to create different types of objects. For example, give me a rich class definition for Tree, and I can instantiate it with instance attribute values that will give me a Maple tree or a Douglas Fir.
 
 
 What is a class?
 ===============================================================================
 
-
-
-
-
-
-
-
-
-
-
+A class is a way of defining an object. It dictates the features of that object, and any logic needed to manipulate object data. It often takes in parameters when you instantiate the class. Classes are abstract concepts and do not exist at a specific memory address. Classes become "real things" when you instantiate them and the instance does exist at a specific memory address.
 
 
 What is an instance attribute?
 ===============================================================================
 
-
-
-
-
-
-
-
-
+An instance attribute is a quality belonging to a specific object once you instantiated it by calling the class. Because it belongs to a specific object, changing the attribute will not change the class or any other instances of the class. An explicity defined instance attribute will take precedence over any attributes inherited by the class.
 
 
 What is a method?
 ===============================================================================
 
-
-
-
-
-
-
-
+A method is used in a class definition to manipulate data belonging to the object. It always takes at least the parameter self, referring to the object you're calling the method on. In our tree example, the way to manipulate leaf fall volume would be defined in a method. Its parameters would be self, species, and age.
 
 
 What is an instance in object orientation?
 ===============================================================================
 
+While classes are abstract concepts, instances are particular instantiations of the class definition. For example, I would call the Tree class, binding it to a variable name, to get a specific tree. I would represent the tree in my front yard tree by calling:
 
+front_yard_maple = Tree("maple", 3)
 
+"maple" is the species, 3 is the age in years, and self is not explicitly included, but is implied as the first parameter.
 
-
-
-
-
+front_yard_maple has all the properties and logic that were defined in the class Tree, but exists at a memory address. If I change the value of one of its attributes, it will not be reflected in the class or in any other instances.
 
 
 How is a class attribute different than an instance attribute? Give an example of when you might use each.
 ===============================================================================
 
-
-
-
-
-
-
-
-
+A classs attribute is part of the global definition of "that kind of thing." For example, in my Tree class, I might say that trees have leaves and their leaf_type = "flat". By default, all instances of the class Tree would be created already having the attribute leaf_type = "flat". But if I wanted to create an instance of a Douglas Fir, it wouldn't be correct to say they have flat leaves. So I would assign them the instance variable value leaf_type = "needle". The new value applies only to my instance, and will not change the class attribute of "flat" or any of the other tree instances.
